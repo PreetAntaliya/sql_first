@@ -1,0 +1,27 @@
+<center>
+    <h1>Add User</h1>
+    <form action="/update" method="post" enctype="multipart/form-data">
+        <table  border="1">
+            <input type="text" value="<%= user.id %>">
+            <input type="hidden" name="oldProfilePic" value="<%= user.profile_pic %>">
+            <tr>
+                <td>Name: </td>
+                <td><input type="text" name="name" value="<%= user.name %>" ></td>
+            </tr>
+            <tr>
+                <td>Mobile: </td>
+                <td><input type="number" name="mobile" value="<%= user.mobile %>"></td>
+            </tr>
+            <tr>
+                <td>Profile_pic: </td>
+                <td><input type="file" name="profile_pic" value="<%= user.profile_pic %>"><br>
+                    <img src="<%= user.profile_pic %>" alt="" width="50">
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Submit"/>
+            </tr>
+        </table>
+    </form>
+</center>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+</head>
+<body>
+    <center>
+        <h1>Add User</h1>
+        <form action="/addUser" method="post" enctype="multipart/form-data">
+            <table  border="1">
+                <tr>
+                    <td>Name: </td>
+                    <td><input type="text" name="name"></td>
+                </tr>
+                <tr>
+                    <td>Mobile: </td>
+                    <td><input type="number" name="mobile"/></td>
+                </tr>
+                <tr>
+                    <td>Profile_pic: </td>
+                    <td><input type="file" name="profile_pic"/></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Submit"/>
+                </tr>
+            </table>
+        </form>
+    </center>
+
+    <h1>User Data</h1>
+
+        <ul>
+            <% formattedData.forEach(user => { %>
+                <li>
+                    <strong>Name:</strong> <%= user.name %><br>
+                    <strong>Mobile:</strong> <%= user.mobile %><br>
+                    <strong>Profile Pic:</strong> <img src="<%= user.profile_pic %>" alt="" width="40"><br>
+                    <a href="/deleteUser?id=<%= user.id %>" onclick="return confirm('Are you sure you want to delete this user?')">Delete</a> |
+                    <a href="/updateUser?id=<%= user.id %>">Update</a>
+                </li>
+            <% }); %>
+        </ul>
+
+</body>
+</html>
